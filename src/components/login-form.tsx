@@ -18,7 +18,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
               className="absolute inset-0 h-full w-full object-cover"
             />
 
-            <div className="flexrow absolute inset-x-0 top-8 left-8 flex items-center gap-3">
+            <div className="absolute inset-x-0 top-8 left-8 flex flex-row items-center gap-3">
               <img src="/logo-5x-8.png" alt="Image" className="z-10 size-8" />
               <span className="text-2xl text-muted-foreground">
                 ART

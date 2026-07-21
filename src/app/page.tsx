@@ -202,6 +202,28 @@ const NEW_MEDIA_ARTWORKS = [
   },
 ];
 
+type Artwork = {
+  imageUrl: string;
+  title: string;
+  artistName: string;
+  artistAvatarFallback: string;
+  price: string;
+  artistAvatarUrl?: string;
+  /** Page-local flag: compose <ArtCard.Overlay /> at the call site, not via ArtCard props. */
+  hasOverlay?: boolean;
+};
+
+/** Composes ArtCard pieces — overlay is optional children, not a boolean prop. */
+function ArtworkSlide({ artwork }: { artwork: Artwork }) {
+  const { hasOverlay, ...card } = artwork;
+
+  return (
+    <CarouselItem className="basis-1/4">
+      <ArtCard {...card}>{hasOverlay ? <ArtCard.Overlay /> : null}</ArtCard>
+    </CarouselItem>
+  );
+}
+
 export default function Home() {
   return (
     <React.Fragment>
@@ -476,9 +498,7 @@ export default function Home() {
             <Carousel className="w-full max-w-6xl">
               <CarouselContent>
                 {NEW_IN_ARTWORKS.map((artwork, idx) => (
-                  <CarouselItem key={idx} className="basis-1/4">
-                    <ArtCard {...artwork} />
-                  </CarouselItem>
+                  <ArtworkSlide key={idx} artwork={artwork} />
                 ))}
               </CarouselContent>
               <CarouselPrevious />
@@ -491,9 +511,7 @@ export default function Home() {
             <Carousel className="w-full max-w-6xl">
               <CarouselContent>
                 {PAINTING_ARTWORKS.map((artwork, idx) => (
-                  <CarouselItem key={idx} className="basis-1/4">
-                    <ArtCard {...artwork} />
-                  </CarouselItem>
+                  <ArtworkSlide key={idx} artwork={artwork} />
                 ))}
               </CarouselContent>
               <CarouselPrevious />
@@ -506,9 +524,7 @@ export default function Home() {
             <Carousel className="w-full max-w-6xl">
               <CarouselContent>
                 {PHOTOGRAPH_ARTWORKS.map((artwork, idx) => (
-                  <CarouselItem key={idx} className="basis-1/4">
-                    <ArtCard {...artwork} />
-                  </CarouselItem>
+                  <ArtworkSlide key={idx} artwork={artwork} />
                 ))}
               </CarouselContent>
               <CarouselPrevious />
@@ -521,9 +537,7 @@ export default function Home() {
             <Carousel className="w-full max-w-6xl">
               <CarouselContent>
                 {SCULPTURE_ARTWORKS.map((artwork, idx) => (
-                  <CarouselItem key={idx} className="basis-1/4">
-                    <ArtCard {...artwork} />
-                  </CarouselItem>
+                  <ArtworkSlide key={idx} artwork={artwork} />
                 ))}
               </CarouselContent>
               <CarouselPrevious />
@@ -536,9 +550,7 @@ export default function Home() {
             <Carousel className="w-full max-w-6xl">
               <CarouselContent>
                 {NEW_MEDIA_ARTWORKS.map((artwork, idx) => (
-                  <CarouselItem key={idx} className="basis-1/4">
-                    <ArtCard {...artwork} />
-                  </CarouselItem>
+                  <ArtworkSlide key={idx} artwork={artwork} />
                 ))}
               </CarouselContent>
               <CarouselPrevious />
