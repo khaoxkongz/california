@@ -4,17 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
-  Design token hierarchy (UX → Tailwind):
-    Brand scales (primary / secondary / assets)
-      → Semantic tokens (--primary, --accent, …)
-        → Component utilities (bg-primary, text-assets-500, …)
-
-  UX steps 0.5–10 map to Tailwind 50–950.
-*/
-
 @theme inline {
-  /* —— Brand scales (from UX design system) —— */
   --color-primary-50: var(--primary-50);
   --color-primary-100: var(--primary-100);
   --color-primary-200: var(--primary-200);
@@ -39,19 +29,18 @@
   --color-secondary-900: var(--secondary-900);
   --color-secondary-950: var(--secondary-950);
 
-  --color-assets-50: var(--assets-50);
-  --color-assets-100: var(--assets-100);
-  --color-assets-200: var(--assets-200);
-  --color-assets-300: var(--assets-300);
-  --color-assets-400: var(--assets-400);
-  --color-assets-500: var(--assets-500);
-  --color-assets-600: var(--assets-600);
-  --color-assets-700: var(--assets-700);
-  --color-assets-800: var(--assets-800);
-  --color-assets-900: var(--assets-900);
-  --color-assets-950: var(--assets-950);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
 
-  /* —— Semantic tokens (shadcn / app UI) —— */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -96,47 +85,42 @@
 }
 
 :root {
-  /* ========== Brand scales (exact hex from UX) ========== */
-  /* PRIMARY — magenta / pink */
-  --primary-50: oklch(94.993% 0.02868 329.109); /* UX 0.5 */
-  --primary-100: oklch(90.203% 0.05535 330.663); /* UX 1 */
-  --primary-200: oklch(80.731% 0.11629 331.512); /* UX 2 */
-  --primary-300: oklch(72.031% 0.17276 332.639); /* UX 3 */
-  --primary-400: oklch(64.68% 0.22335 333.863); /* UX 4 */
-  --primary-500: oklch(59.254% 0.24975 335.327); /* UX 5 — brand base */
-  --primary-600: oklch(50.385% 0.21107 335.206); /* UX 6 */
-  --primary-700: oklch(40.938% 0.16843 335.08); /* UX 7 */
-  --primary-800: oklch(31.129% 0.12454 334.755); /* UX 8 */
-  --primary-900: oklch(20.348% 0.07275 334.111); /* UX 9 */
-  --primary-950: oklch(0% 0 0); /* UX 10 */
+  --primary-50: oklch(94.993% 0.02868 329.109);
+  --primary-100: oklch(90.203% 0.05535 330.663);
+  --primary-200: oklch(80.731% 0.11629 331.512);
+  --primary-300: oklch(72.031% 0.17276 332.639);
+  --primary-400: oklch(64.68% 0.22335 333.863);
+  --primary-500: oklch(59.254% 0.24975 335.327);
+  --primary-600: oklch(50.385% 0.21107 335.206);
+  --primary-700: oklch(40.938% 0.16843 335.08);
+  --primary-800: oklch(31.129% 0.12454 334.755);
+  --primary-900: oklch(20.348% 0.07275 334.111);
+  --primary-950: oklch(0% 0 0);
 
-  /* SECONDARY — coral / orange */
-  --secondary-50: oklch(96.997% 0.01553 42.083); /* UX 0.5 */
-  --secondary-100: oklch(93.923% 0.03123 45.146); /* UX 1 */
-  --secondary-200: oklch(87.839% 0.06488 43.444); /* UX 2 */
-  --secondary-300: oklch(82.324% 0.10064 43.383); /* UX 3 */
-  --secondary-400: oklch(76.932% 0.13657 42.582); /* UX 4 */
-  --secondary-500: oklch(72.256% 0.1704 41.902); /* UX 5 — brand base */
-  --secondary-600: oklch(63.177% 0.15105 41.64); /* UX 6 */
-  --secondary-700: oklch(53.917% 0.13017 41.888); /* UX 7 */
-  --secondary-800: oklch(43.93% 0.10781 41.254); /* UX 8 */
-  --secondary-900: oklch(33.668% 0.08482 41.502); /* UX 9 */
-  --secondary-950: oklch(22.328% 0.06258 43.803); /* UX 10 */
+  --secondary-50: oklch(96.997% 0.01553 42.083);
+  --secondary-100: oklch(93.923% 0.03123 45.146);
+  --secondary-200: oklch(87.839% 0.06488 43.444);
+  --secondary-300: oklch(82.324% 0.10064 43.383);
+  --secondary-400: oklch(76.932% 0.13657 42.582);
+  --secondary-500: oklch(72.256% 0.1704 41.902);
+  --secondary-600: oklch(63.177% 0.15105 41.64);
+  --secondary-700: oklch(53.917% 0.13017 41.888);
+  --secondary-800: oklch(43.93% 0.10781 41.254);
+  --secondary-900: oklch(33.668% 0.08482 41.502);
+  --secondary-950: oklch(22.328% 0.06258 43.803);
 
-  /* ASSETS — cyan / teal */
-  --assets-50: oklch(97.346% 0.02096 197.106); /* UX 0.5 */
-  --assets-100: oklch(94.705% 0.04218 194.781); /* UX 1 */
-  --assets-200: oklch(89.944% 0.0799 194.916); /* UX 2 */
-  --assets-300: oklch(85.996% 0.1108 193.191); /* UX 3 */
-  --assets-400: oklch(82.556% 0.12973 193.118); /* UX 4 */
-  --assets-500: oklch(79.784% 0.136 192.427); /* UX 5 — brand base */
-  --assets-600: oklch(67.631% 0.115 192.612); /* UX 6 */
-  --assets-700: oklch(54.865% 0.09312 191.954); /* UX 7 */
-  --assets-800: oklch(41.052% 0.06895 193.453); /* UX 8 */
-  --assets-900: oklch(26.206% 0.04334 192.404); /* UX 9 */
-  --assets-950: oklch(0% 0 0); /* UX 10 */
+  --accent-50: oklch(97.346% 0.02096 197.106);
+  --accent-100: oklch(94.705% 0.04218 194.781);
+  --accent-200: oklch(89.944% 0.0799 194.916);
+  --accent-300: oklch(85.996% 0.1108 193.191);
+  --accent-400: oklch(82.556% 0.12973 193.118);
+  --accent-500: oklch(79.784% 0.136 192.427);
+  --accent-600: oklch(67.631% 0.115 192.612);
+  --accent-700: oklch(54.865% 0.09312 191.954);
+  --accent-800: oklch(41.052% 0.06895 193.453);
+  --accent-900: oklch(26.206% 0.04334 192.404);
+  --accent-950: oklch(0% 0 0);
 
-  /* ========== Semantic tokens → brand steps ========== */
   --background: var(--color-white);
   --foreground: var(--primary-950);
 
@@ -146,32 +130,27 @@
   --popover: var(--color-white);
   --popover-foreground: var(--primary-950);
 
-  /* Primary CTA: magenta-500 on white text */
   --primary: var(--primary-500);
   --primary-foreground: var(--color-white);
 
-  /* Secondary surface: soft coral tint + deep orange text */
   --secondary: var(--secondary-100);
   --secondary-foreground: var(--secondary-950);
 
-  /* Muted: light primary wash */
   --muted: var(--primary-50);
   --muted-foreground: var(--primary-950);
 
-  /* Accent: assets (cyan) tint */
-  --accent: var(--assets-50);
-  --accent-foreground: var(--assets-950);
+  --accent: var(--accent-50);
+  --accent-foreground: var(--accent-950);
 
   --destructive: oklch(57.707% 0.21516 27.312);
 
-  --border: var(--primary-100);
-  --input: var(--primary-100);
+  --border: var(--color-stone-100);
+  --input: var(--color-stone-100);
   --ring: var(--primary-500);
 
-  /* Charts: sample across the three brand scales */
   --chart-1: var(--primary-500);
   --chart-2: var(--secondary-500);
-  --chart-3: var(--assets-500);
+  --chart-3: var(--accent-500);
   --chart-4: var(--primary-300);
   --chart-5: var(--secondary-300);
 
@@ -181,9 +160,9 @@
   --sidebar-foreground: var(--primary-950);
   --sidebar-primary: var(--primary-500);
   --sidebar-primary-foreground: var(--color-white);
-  --sidebar-accent: var(--assets-50);
-  --sidebar-accent-foreground: var(--assets-950);
-  --sidebar-border: var(--primary-100);
+  --sidebar-accent: var(--accent-50);
+  --sidebar-accent-foreground: var(--accent-950);
+  --sidebar-border: var(--color-stone-100);
   --sidebar-ring: var(--primary-500);
 }
 

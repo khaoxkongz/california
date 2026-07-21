@@ -1,11 +1,11 @@
 import { RegisterForm } from "@/components/register-form";
 import * as React from "react";
 
-export default function Page({}: PageProps<"/auth/register">) {
+export default function Page({}: PageProps<"/register">) {
   return (
     <React.Fragment>
       <div className="mt-auto p-6 md:p-10">
-        <div className="w-full max-w-6xl">
+        <div className="mx-auto w-full max-w-6xl">
           <RegisterForm />
         </div>
       </div>

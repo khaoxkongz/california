@@ -11,13 +11,30 @@ function ArtCardRoot({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ArtCardImage({ src, alt }: { src: string; alt: string }) {
-  return <Image src={src} alt={alt} fill sizes="" className="object-cover" />;
+function ArtCardImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      sizes="(max-width: 768px) 50vw, 256px"
+      priority={priority}
+      className="object-cover"
+    />
+  );
 }
 
 function ArtCardOverlay() {
   return (
-    <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-[#000000] from-0% via-50% to-[#000000] to-100%" />
+    <div className="pointer-events-none absolute inset-0 bg-transparent bg-linear-to-b from-black/30 via-black/5 to-black/0" />
   );
 }
 
@@ -54,7 +71,6 @@ function ArtCardFooter({ price }: { price: string }) {
   );
 }
 
-/** Default marketplace card layout. Compose optional layers via children (e.g. Overlay). */
 function ArtCardDefault({
   imageUrl,
   title,
@@ -62,6 +78,7 @@ function ArtCardDefault({
   artistAvatarUrl,
   artistAvatarFallback,
   price,
+  priority = false,
   children,
 }: {
   imageUrl: string;
@@ -70,11 +87,12 @@ function ArtCardDefault({
   artistAvatarUrl?: string;
   artistAvatarFallback: string;
   price: string;
+  priority?: boolean;
   children?: React.ReactNode;
 }) {
   return (
     <ArtCardRoot>
-      <ArtCardImage src={imageUrl} alt={title} />
+      <ArtCardImage src={imageUrl} alt={title} priority={priority} />
       {children}
       <ArtCardHeader
         title={title}

@@ -1,11 +1,11 @@
 import { LoginForm } from "@/components/login-form";
 import * as React from "react";
 
-export default function Page({}: PageProps<"/auth/login">) {
+export default function Page({}: PageProps<"/login">) {
   return (
     <React.Fragment>
       <div className="mt-auto p-6 md:p-10">
-        <div className="w-full max-w-6xl">
+        <div className="mx-auto w-full max-w-6xl">
           <LoginForm />
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,14 +13,24 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
           <div className="relative hidden bg-muted md:block">
-            <img
+            <Image
               src="/brushes-jar.jpg"
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover"
+              alt="Paint brushes in a jar"
+              fill
+              sizes="(max-width: 768px) 0px, 50vw"
+              className="object-cover"
+              priority
             />
 
             <div className="absolute inset-x-0 top-8 left-8 flex flex-row items-center gap-3">
-              <img src="/logo-5x-8.png" alt="Image" className="z-10 size-8" />
+              <Image
+                src="/logo-5x-8.png"
+                alt="Logo of Arthub"
+                width={32}
+                height={32}
+                className="z-10 size-8"
+                priority
+              />
               <span className="text-2xl text-muted-foreground">
                 ART
                 <span className="text-foreground">HUB</span>
@@ -55,7 +66,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
               </Field>
               <FieldDescription className="text-center">
                 Don&apos;t have an account?{" "}
-                <Link href="/auth/register" className="text-sm underline-offset-2 hover:underline">
+                <Link href="/register" className="text-sm underline-offset-2 hover:underline">
                   Sign up
                 </Link>
               </FieldDescription>

@@ -7,7 +7,7 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   fmt: {
-    ignorePatterns: [],
+    ignorePatterns: [".next/**", "node_modules/**", ".agents/**"],
     sortTailwindcss: {
       stylesheet: "./src/app/globals.css",
       functions: ["clsx", "cn"],

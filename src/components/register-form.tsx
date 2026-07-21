@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,14 +13,24 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
           <div className="relative hidden bg-muted md:block">
-            <img
+            <Image
               src="/still-life-small-decorative-objects-with-vivid-colors.jpg"
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover"
+              alt="Still life decorative objects"
+              fill
+              sizes="(max-width: 768px) 0px, 50vw"
+              className="object-cover"
+              priority
             />
 
-            <div className="flexrow absolute inset-x-0 top-8 left-8 flex items-center gap-3">
-              <img src="/logo-5x-8.png" alt="Image" className="z-10 size-8" />
+            <div className="absolute inset-x-0 top-8 left-8 flex flex-row items-center gap-3">
+              <Image
+                src="/logo-5x-8.png"
+                alt="Logo of Arthub"
+                width={32}
+                height={32}
+                className="z-10 size-8"
+                priority
+              />
               <span className="text-2xl text-muted-foreground">
                 ART
                 <span className="text-foreground">HUB</span>
@@ -58,7 +69,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
               </Field>
               <FieldDescription className="text-center">
                 have an account?{" "}
-                <Link href="/auth/login" className="text-sm underline-offset-2 hover:underline">
+                <Link href="/login" className="text-sm underline-offset-2 hover:underline">
                   Sign In
                 </Link>
               </FieldDescription>
