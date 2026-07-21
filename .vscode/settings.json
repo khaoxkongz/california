@@ -1,5 +1,5 @@
 {
-  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "oxc.fmt.configPath": "./vite.config.ts",
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
   "[javascript]": {
@@ -35,5 +35,9 @@
     "**/app/**/default.tsx": "${dirname(1)}/${dirname} -default.tsx",
     "**/app/**/route.ts": "${dirname(1)}/${dirname} -route.ts"
   },
-  "js/ts.tsdk.path": "./node_modules/typescript/bin/tsc"
+  "js/ts.tsdk.path": "./node_modules/typescript/bin/tsc",
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit"
+  }
 }
