@@ -47,7 +47,7 @@ export default function RootLayout({
         lineSeedSansTh.variable,
       )}
     >
-      <body className="flex min-h-full flex-col bg-background [font-family:var(--font-geist-sans)] [--font-heading:var(--font-line-seed-sans-th)] [--font-mono:var(--font-geist-mono)]">
+      <body className="flex min-h-dvh flex-col bg-background [font-family:var(--font-geist-sans)] [--font-heading:var(--font-line-seed-sans-th)] [--font-mono:var(--font-geist-mono)]">
         {children}
       </body>
     </html>

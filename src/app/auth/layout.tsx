@@ -1,6 +1,6 @@
 export default function Layout({ children }: LayoutProps<"/auth">) {
   return (
-    <div className="flex min-h-dvh flex-1 flex-col bg-[url('/white-fabric-texture-background-design-element.png')] bg-no-repeat">
+    <div className="grid flex-1 auto-rows-auto items-start bg-[url(/white-fabric-texture-background-design-element.jpg)] bg-cover bg-center bg-no-repeat">
       {children}
     </div>
   );

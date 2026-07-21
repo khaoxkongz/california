@@ -16,7 +16,6 @@ import {
   MapPinIcon,
   Share2Icon,
   ShieldCheckIcon,
-  ShieldIcon,
   TruckIcon,
 } from "lucide-react";
 
